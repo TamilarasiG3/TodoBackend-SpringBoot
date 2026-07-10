@@ -21,6 +21,15 @@ public class TodoController {
 
     private final TodoService todoService;
 
+    @RestController
+    public class HomeController {
+
+        @GetMapping("/")
+        public String home() {
+            return "Todo API Running";
+        }
+    }
+
     @GetMapping("/all")
     public ResponseEntity<List<Todo>> getTodos() {
 
@@ -69,7 +78,7 @@ public class TodoController {
         );
     }
 
-    @PostMapping("/create")
+     @PostMapping("/create")
 public ResponseEntity<Todo> createTodo(
         @RequestBody Todo todo) {
 
